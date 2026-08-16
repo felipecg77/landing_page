@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comida Para Todos - Rescata Alimentos, Ahorra y Ayuda al Planeta</title>
+  <meta name="description" content="Plataforma líder para comprar excedentes de comida de calidad con hasta 70% de descuento. Conecta tiendas localmente y combate el desperdicio de alimentos.">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- OpenGraph SEO -->
+  <meta property="og:title" content="Comida Para Todos - Salva Comida y Ahorra Dinero">
+  <meta property="og:description" content="Descubre paquetes sorpresa y ofertas en tus establecimientos favoritos. Reduce el desperdicio de comida.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar Sticky -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-content">
+      <a href="#" class="logo">
+        <img src="assets/logo.png" alt="Comida Para Todos Logo" class="logo-img">
+        <span class="logo-text">Comida<span class="highlight">ParaTodos</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#compradores" class="nav-link">Para Compradores</a>
+        <a href="#vendedores" class="nav-link">Para Comercios</a>
+        <a href="#impacto" class="nav-link">Impacto Social</a>
+        <a href="#faq" class="nav-link">Preguntas Frecuentes</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <a href="#descargar" class="btn btn-primary"><i class="fa-solid fa-mobile-screen"></i> Descargar Apps</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="badge-pill">
+          <span class="pulse-dot"></span> Rescate Alimentario Inteligente
+        </div>
+        <h1 class="hero-title">
+          Disfruta comida de calidad con hasta <span class="gradient-text">70% de descuento</span>
+        </h1>
+        <p class="hero-description">
+          Unimos a personas amantes de la buena comida con restaurantes, panaderías y comercios locales para darle una segunda oportunidad a miles de platillos deliciosos.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#descargar" class="btn btn-lg btn-emerald">
+            <i class="fa-brands fa-android"></i> App Cliente
+          </a>
+          <a href="#vendedores" class="btn btn-lg btn-outline">
+            <i class="fa-solid fa-store"></i> Soy un Comercio
+          </a>
+        </div>
+
+        <div class="hero-stats-mini">
+          <div class="stat-item-mini">
+            <span class="stat-number">01/11/2026</span>
+            <span class="stat-label">Gran Lanzamiento</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item-mini">
+            <span class="stat-number">Pre-registro</span>
+            <span class="stat-label">Abierto hoy</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item-mini">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Calidad Garantizada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="app-card-preview floating">
+          <div class="preview-badge"><i class="fa-solid fa-bolt"></i> ¡Ofertas en tiempo real!</div>
+          <img src="assets/hero_app_showcase.jpg" alt="Comida Para Todos App" class="hero-img">
+          <div class="app-floating-card top-right">
+            <div class="card-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <div class="card-info">
+              <strong>Kit Ahorro Sorpresa</strong>
+              <small>De $150 a sólo $45 MXN</small>
+            </div>
+          </div>
+          <div class="app-floating-card bottom-left">
+            <div class="card-icon check"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="card-info">
+              <strong>100% Fresco y Garantizado</strong>
+              <small>Retiro o reparto local</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Role Toggle Section (Interactive Selector) -->
+  <section class="section-roles">
+    <div class="container">
+      <div class="role-selector-wrapper">
+        <div class="role-tabs" id="role-tabs">
+          <button class="role-tab active" data-tab="compradores">
+            <i class="fa-solid fa-user-group"></i> Para Compradores
+          </button>
+          <button class="role-tab" data-tab="vendedores">
+            <i class="fa-solid fa-store"></i> Para Comercios / Donantes
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compradores Feature Section -->
+  <section class="section role-content active" id="compradores">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">¿Por qué usar <span class="gradient-text">Comida Para Todos</span>?</h2>
+        <p class="section-subtitle">Ahorra en tu presupuesto diario mientras disfrutas de tus alimentos preferidos.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon emerald"><i class="fa-solid fa-percent"></i></div>
+          <h3 class="feature-title">Precios Irresistibles</h3>
+          <p class="feature-text">Encuentra productos y paquetes de excedentes del día con descuentos del 50% al 70% sobre su precio original.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon orange"><i class="fa-solid fa-box-open"></i></div>
+          <h3 class="feature-title">Kits Ahorro Sorpresa</h3>
+          <p class="feature-text">Disfruta de combinaciones de alimentos frescos empaquetados por los mejores comercios de tu zona a precios fijos increíblemente bajos.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon emerald"><i class="fa-solid fa-location-dot"></i></div>
+          <h3 class="feature-title">Cercanía y Geolocalización</h3>
+          <p class="feature-text">Encuentra panaderías, cafeterías, restaurantes y supermercados a pocos pasos de tu casa o trabajo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon orange"><i class="fa-solid fa-key"></i></div>
+          <h3 class="feature-title">Entrega Segura por Clave</h3>
+          <p class="feature-text">Sistema de entrega confiable mediante palabra clave única para validar tus compras físicas o con repartidor propio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendedores Feature Section -->
+  <section class="section role-content" id="vendedores">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Impulsa tu negocio con <span class="gradient-text-orange">Cero Desperdicio</span></h2>
+        <p class="section-subtitle">Convierte los excedentes del día en ganancias y nuevos clientes leales.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon orange"><i class="fa-solid fa-coins"></i></div>
+          <h3 class="feature-title">Monetiza tus Excedentes</h3>
+          <p class="feature-text">Recupera el costo de ingredientes y producción publicando excedentes al final de la jornada en cuestión de segundos.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon emerald"><i class="fa-solid fa-users"></i></div>
+          <h3 class="feature-title">Atrae Nuevos Clientes</h3>
+          <p class="feature-text">Decenas de usuarios descubrirán tu negocio en la app y se convertirán en clientes habituales de tu catálogo regular.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon orange"><i class="fa-solid fa-truck-ramp-box"></i></div>
+          <h3 class="feature-title">Logística Flexible</h3>
+          <p class="feature-text">Configura fácil tus horarios de entrega en mostrador o define tu propia área de reparto a domicilio con compra mínima.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon emerald"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 class="feature-title">Control de Inventario en Vivo</h3>
+          <p class="feature-text">Suscripción en tiempo real con notificaciones al momento en que un cliente confirma o retira un pedido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Launch Countdown Section -->
+  <section class="section section-impact" id="impacto">
+    <div class="container">
+      <div class="impact-card">
+        <div class="impact-header">
+          <span class="badge-pill orange"><i class="fa-solid fa-calendar-check"></i> Próximamente</span>
+          <h2>¡Gran Lanzamiento Oficial!</h2>
+          <p>La plataforma comenzará operaciones oficialmente el <strong>01 de Noviembre de 2026</strong>. ¡Prepara tus pedidos y tu comercio!</p>
+        </div>
+
+        <div class="launch-countdown-grid" id="main-countdown">
+          <div class="countdown-unit">
+            <span class="unit-number" id="cd-days">00</span>
+            <span class="unit-label">Días</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="unit-number" id="cd-hours">00</span>
+            <span class="unit-label">Horas</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="unit-number" id="cd-minutes">00</span>
+            <span class="unit-label">Minutos</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="unit-number" id="cd-seconds">00</span>
+            <span class="unit-label">Segundos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="section section-download" id="descargar">
+    <div class="container">
+      <div class="download-banner">
+        <div class="download-content">
+          <span class="badge-pill orange"><i class="fa-solid fa-rocket"></i> Únete hoy mismo</span>
+          <h2>¡Descarga las aplicaciones y comienza a transformar la forma de comer!</h2>
+          <p>Disponibles para dispositivos Android e iOS. Elige la app adecuada para ti:</p>
+
+          <div class="download-buttons">
+            <div class="download-card">
+              <div class="card-badge">Para usuarios final</div>
+              <h3><i class="fa-solid fa-basket-shopping"></i> App Cliente</h3>
+              <p>Busca comida fresca con descuento cerca de ti.</p>
+              <div class="btn-group">
+                <a href="http://192.168.1.75:8080" target="_blank" class="btn btn-emerald btn-block">
+                  <i class="fa-solid fa-globe"></i> Abrir Versión Web
+                </a>
+              </div>
+            </div>
+
+            <div class="download-card">
+              <div class="card-badge orange">Para restaurantes y tiendas</div>
+              <h3><i class="fa-solid fa-store"></i> App Vendedor</h3>
+              <p>Publica excedentes y gestiona tus entregas.</p>
+              <div class="btn-group">
+                <a href="http://192.168.1.75:8081" target="_blank" class="btn btn-orange btn-block">
+                  <i class="fa-solid fa-globe"></i> Abrir Versión Web
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <p class="section-subtitle">Todo lo que necesitas saber sobre el funcionamiento de Comida Para Todos.</p>
+      </div>
+
+      <div class="faq-accordion" id="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Los alimentos rescatados están en buen estado?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>¡Por supuesto! Todos los alimentos ofertados en la plataforma son excedentes frescos del día preparados o producidos con altos estándares de calidad, listos para disfrutarse.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cómo retiro mi compra en la tienda?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Al realizar tu pedido en la App Cliente se generará una **palabra clave única** y un número de folio. Sólo muéstralo en el mostrador del establecimiento para validar y recibir tu paquete.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Puedo registrar mi comercio o panadería para vender?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>¡Sí! Puedes descargar la **App Vendedor** o acceder desde el navegador, crear tu perfil de tienda en menos de 5 minutos y comenzar a publicar tus productos y Kits Ahorro de inmediato.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué métodos de pago son aceptados?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Soportamos pago en efectivo al momento de retirar en sucursal y pagos directos configurados por cada establecimiento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <a href="#" class="logo">
+          <img src="assets/logo.png" alt="Comida Para Todos Logo" class="logo-img">
+          <span class="logo-text">Comida<span class="highlight">ParaTodos</span></span>
+        </a>
+        <p class="footer-text">Transformando excedentes en sonrisas. La plataforma comprometida con la reducción del desperdicio de comida en nuestra comunidad.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="http://192.168.1.75:8080">App Cliente</a></li>
+          <li><a href="http://192.168.1.75:8081">App Proveedor</a></li>
+          <li><a href="http://192.168.1.75:8082">Panel de Administración</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto y Ayuda</h4>
+        <ul>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="mailto:contacto@comidaparatodos.com">Soporte Técnico</a></li>
+          <li><a href="#">Términos y Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom text-center">
+      <p>&copy; 2026 Comida Para Todos. Todos los derechos reservados.</p>
+    </div>
+  <!-- Pop-Up Modal de Lanzamiento (01/11/2026) -->
+  <div class="modal-overlay" id="launch-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar modal">&times;</button>
+      <div class="modal-body text-center">
+        <div class="modal-logo">
+          <img src="assets/logo.png" alt="Comida Para Todos" class="modal-logo-img">
+        </div>
+        <div class="badge-pill orange">
+          <i class="fa-solid fa-bullhorn"></i> Anuncio Oficial de Lanzamiento
+        </div>
+        <h2 class="modal-title">¡Iniciamos Operaciones el <span class="gradient-text-orange">01 / Nov / 2026</span>!</h2>
+        <p class="modal-description">
+          Estamos afinando los últimos detalles para brindarte la mejor experiencia en rescate alimentario. ¡Ahorra en tus alimentos preferidos y apoya al planeta desde el primer día!
+        </p>
+
+        <!-- Mini Countdown inside Modal -->
+        <div class="modal-countdown">
+          <div class="m-cd-box"><span id="m-days">00</span><small>Días</small></div>
+          <div class="m-cd-box"><span id="m-hours">00</span><small>Hs</small></div>
+          <div class="m-cd-box"><span id="m-mins">00</span><small>Min</small></div>
+          <div class="m-cd-box"><span id="m-secs">00</span><small>Seg</small></div>
+        </div>
+
+        <form class="modal-form" id="pre-register-form">
+          <div class="form-group">
+            <input type="tel" placeholder="Ingresa tu número de WhatsApp (10 dígitos)" required id="modal-phone" class="modal-input">
+          </div>
+          <button type="submit" class="btn btn-emerald btn-block btn-lg">
+            <i class="fa-solid fa-bell"></i> Pre-registrarme para el Lanzamiento
+          </button>
+        </form>
+        <p class="modal-footer-note"><i class="fa-solid fa-lock"></i> Sin spam. Te avisaremos sólo el día del gran inicio.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
