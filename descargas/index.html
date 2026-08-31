@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Interno - Comida Para Todos</title>
+  
+  <!-- CABECERAS ANTI-CACHÉ ESTRICTAS: OBLIGA A PEDIR CLAVE EN CADA RECARGA -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #131b2e;
+      --card-border: #1e293b;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --accent: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* PANTALLA DE BLOQUEO */
+    #lockScreen {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.5rem;
+      padding: 2.5rem 1.75rem;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+    }
+    .lock-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .lock-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .lock-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .pin-input {
+      width: 100%;
+      max-width: 280px;
+      padding: 0.9rem 1rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1.5px solid var(--card-border);
+      border-radius: 0.85rem;
+      color: white;
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+      text-align: center;
+      outline: none;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s ease;
+    }
+    .pin-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    }
+    .btn-unlock {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      max-width: 280px;
+      background: var(--primary);
+      color: #042f2e;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.9rem;
+      border-radius: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-unlock:hover {
+      background: var(--primary-hover);
+      color: white;
+    }
+    .error-msg {
+      color: var(--danger);
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+      display: none;
+    }
+
+    /* PANTALLA DE DESCARGAS (DESBLOQUEADA) */
+    #downloadScreen {
+      display: none;
+    }
+    .header {
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .cards-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .app-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .icon-client { background: rgba(16, 185, 129, 0.2); color: var(--primary); }
+    .icon-seller { background: rgba(245, 158, 11, 0.2); color: var(--accent); }
+    .card-title h3 { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: white; }
+    .card-title p { color: var(--text-muted); font-size: 0.8rem; }
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.85rem;
+      border-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-emerald { background: var(--primary); color: #042f2e; }
+    .btn-emerald:hover { background: var(--primary-hover); color: white; }
+    .btn-amber { background: var(--accent); color: #451a03; }
+    .btn-amber:hover { background: #d97706; color: white; }
+    .btn-lock-again {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .btn-lock-again:hover {
+      color: white;
+      border-color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- PANTALLA DE ACCESO PROTEGIDO CON CLAVE (SIEMPRE VISIBLE AL INICIAR/RECARGAR) -->
+    <div id="lockScreen">
+      <div class="lock-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h2 class="lock-title">Acceso Restringido</h2>
+      <p class="lock-desc">
+        Este portal es para <strong>uso exclusivo del equipo interno y supervisores</strong>.<br>
+        Ingrese la clave de seguridad para descargar las aplicaciones de prueba.
+      </p>
+
+      <input type="password" id="pinCode" class="pin-input" placeholder="••••" maxlength="12" autocomplete="off" autofocus>
+      <br>
+      <button class="btn-unlock" onclick="validatePin()">
+        <i class="fa-solid fa-lock-open"></i> Desbloquear Descargas
+      </button>
+
+      <div id="errorMsg" class="error-msg">
+        <i class="fa-solid fa-circle-exclamation"></i> Clave incorrecta. Acceso restringido.
+      </div>
+    </div>
+
+    <!-- PANTALLA DE DESCARGAS (SOLO SE VE MIENTRAS NO SE RECARGUE) -->
+    <div id="downloadScreen">
+      <div class="header">
+        <div class="badge">
+          <i class="fa-solid fa-user-gear"></i> Módulo Interno de Demostración
+        </div>
+        <h1>Descarga de APKs Oficiales</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Para dispositivos móviles del equipo de ventas y supervisión.</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- App Vendedor -->
+        <div class="app-card" style="border-color: rgba(245, 158, 11, 0.4);">
+          <div class="card-top">
+            <div class="card-icon icon-seller">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="card-title">
+              <h3>App Comerciante (Vendedor)</h3>
+              <p>Para demostración a comercios en visitas</p>
+            </div>
+          </div>
+          <a href="app-vendedor.apk" class="btn-download btn-amber" download>
+            <i class="fa-brands fa-android"></i> Descargar APK Vendedor
+          </a>
+        </div>
+
+        <!-- App Cliente -->
+        <div class="app-card" style="border-color: rgba(16, 185, 129, 0.4);">
+          <div class="card-top">
+            <div class="card-icon icon-client">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+            <div class="card-title">
+              <h3>App Comprador (Cliente)</h3>
+              <p>Para simular compras y alertas frente al comerciante</p>
+            </div>
+          </div>
+          <a href="app-cliente.apk" class="btn-download btn-emerald" download>
+            <i class="fa-brands fa-android"></i> Descargar APK Cliente
+          </a>
+        </div>
+      </div>
+
+      <button class="btn-lock-again" onclick="lockAgain()">
+        <i class="fa-solid fa-lock"></i> Cerrar Sesión y Bloquear
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // CLAVES AUTORIZADAS
+    const SECRET_PIN = "Comida2026";
+    const SHORT_PIN = "4878";
+
+    // NUNCA GUARDAR EN SESIÓN NI LOCALSTORAGE NI COOKIES NI CACHÉ
+    // CADA RECARGA DE PÁGINA (F5) OBRIGATORIAMENTE PIDE LA CLAVE
+
+    function validatePin() {
+      const input = document.getElementById("pinCode").value;
+      const errorMsg = document.getElementById("errorMsg");
+      
+      if (input === SECRET_PIN || input === SHORT_PIN) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("downloadScreen").style.display = "block";
+      } else {
+        errorMsg.style.display = "block";
+        document.getElementById("pinCode").value = "";
+        document.getElementById("pinCode").focus();
+      }
+    }
+
+    function lockAgain() {
+      document.getElementById("lockScreen").style.display = "block";
+      document.getElementById("downloadScreen").style.display = "none";
+      document.getElementById("errorMsg").style.display = "none";
+      document.getElementById("pinCode").value = "";
+      document.getElementById("pinCode").focus();
+    }
+
+    // Permitir presionar tecla Enter
+    document.getElementById("pinCode").addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        validatePin();
+      }
+    });
+
+    // Limpiar siempre el input al cargar la pantalla
+    window.onload = function() {
+      document.getElementById("pinCode").value = "";
+    };
+  </script>
+
+</body>
+</html>
