@@ -289,7 +289,8 @@
   <script>
     // CLAVES AUTORIZADAS
     const SECRET_PIN = "Comida2026";
-    const SHORT_PIN = "4878";
+    const SHORT_PIN = "7498";
+    const LEGACY_PIN = "4878";
 
     // NUNCA GUARDAR EN SESIÓN NI LOCALSTORAGE NI COOKIES NI CACHÉ
     // CADA RECARGA DE PÁGINA (F5) OBRIGATORIAMENTE PIDE LA CLAVE
@@ -298,7 +299,7 @@
       const input = document.getElementById("pinCode").value;
       const errorMsg = document.getElementById("errorMsg");
       
-      if (input === SECRET_PIN || input === SHORT_PIN) {
+      if (input === SECRET_PIN || input === SHORT_PIN || input === LEGACY_PIN) {
         document.getElementById("lockScreen").style.display = "none";
         document.getElementById("downloadScreen").style.display = "block";
       } else {

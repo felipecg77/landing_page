@@ -102,10 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const preRegForm = document.getElementById('pre-register-form');
 
   if (modal) {
-    // Open modal automatically after 1.2s on page load
-    setTimeout(() => {
-      modal.classList.add('active');
-    }, 1200);
+    // Abrir modal automáticamente después de 1.2s solo si el usuario no ingresó directo a una sección como #descargar
+    const hasSpecificHash = window.location.hash && window.location.hash !== '#' && window.location.hash !== '#inicio';
+    if (!hasSpecificHash) {
+      setTimeout(() => {
+        modal.classList.add('active');
+      }, 1200);
+    }
 
     // Close button
     if (modalCloseBtn) {
